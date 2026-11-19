@@ -47,7 +47,7 @@ The moment an embedded diagram, chart, or screenshot with a pure `#FFFFFF` canva
 2. **Smooth Highlight Roll-Off**  
    Pixels above $T$ (blinding whites and near-white canvases) are smoothly compressed toward the **White Ceiling ($C$)** using a deterministic ease-out curve:
 
-   $$y = egin{cases} x & 	ext{if } x \le T \ T + (C - T) \cdot \left(1 - \left(1 - rac{x - T}{1 - T}ight)^{1.35}ight) & 	ext{if } x > T \end{cases}$$
+   $$y = \begin{cases} x & \text{if } x \le T \\ T + (C - T) \cdot \left(1 - \left(1 - \frac{x - T}{1 - T}\right)^{1.35}\right) & \text{if } x > T \end{cases}$$
 
 3. **Optional Paper Warmth**  
    Subtly attenuates only the blue and green channels *above the knee threshold*, turning harsh blue-white `#FFFFFF` backgrounds into calm warm-paper tones while keeping dark colors completely neutral.
@@ -59,9 +59,13 @@ The moment an embedded diagram, chart, or screenshot with a pure `#FFFFFF` canva
 
 ---
 
-## Features
+## Extension View & Features
 
-- **Real-Time Transfer Curve Visualizer:** See the exact luminance clamping curve and live `#FFFFFF → #B8B8B8` output swatch update as you adjust sliders.
+<p align="center">
+  <img src="assets/extension-popup.png" alt="LumaGuard Extension Popup GUI" width="340" />
+</p>
+
+- **Real-Time Transfer Curve Visualizer:** See the exact luminance clamping curve and live `#FFFFFF → #BDB9B3` output swatch update as you adjust sliders.
 - **One-Click Reading Presets:** Switch instantly between **Reading**, **Deep Night**, and **Diagram Dark**.
 - **Per-Site Pause Control:** Pause or resume LumaGuard on any specific domain in one click.
 - **Instant Keyboard Toggle:** Press `Alt + Shift + L` anytime to compare before vs. after.
@@ -94,8 +98,9 @@ LumaGuard/
 │   ├── popup.html              # Glassmorphic extension UI
 │   ├── popup.css               # Obsidian minimalist dark styling
 │   ├── popup.js                # Live SVG curve renderer & state management
-│   └── icons/                  # 16px, 32px, 48px, 128px PNG icons
-├── assets/                     # Vector logo, Chrome Web Store promo tile & banner
+│   └── icons/                  # 16px, 32px, 48px, and 128px PNG icons
+├── assets/                     # Vector logo, popup preview, promo tile & banner
+│   └── extension-popup.png     # Extension popup UI screenshot
 ├── PRIVACY.md                  # Zero-data-collection privacy policy
 ├── CONTRIBUTING.md             # Contribution guidelines
 ├── LICENSE                     # MIT License
