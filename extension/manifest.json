@@ -1,0 +1,40 @@
+{
+  "manifest_version": 3,
+  "name": "LumaGuard \u2014 Dark Mode Highlight Normalizer",
+  "short_name": "LumaGuard",
+  "version": "1.0.0",
+  "description": "Deterministically compresses blinding white highlights in web images and diagrams while preserving contrast and dark tones.",
+  "author": "Bhavya N Gohil",
+  "homepage_url": "https://github.com/TheBhavyaGohil/LumaGuard",
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_title": "LumaGuard \u2014 Highlight Normalizer",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_start"
+    }
+  ]
+}
