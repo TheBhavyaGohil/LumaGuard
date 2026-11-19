@@ -47,11 +47,13 @@ The moment an embedded diagram, chart, or screenshot with a pure `#FFFFFF` canva
 2. **Smooth Highlight Roll-Off**  
    Pixels above $T$ (blinding whites and near-white highlights) are smoothly compressed toward the **White Ceiling ($C$)** using a deterministic ease-out curve:
 
-   ```math
-   y = \begin{cases}
-   x & \text{if } x \le T \\
-   T + (C - T) \cdot \left(1 - \left(1 - \frac{x - T}{1 - T}\right)^{1.35}\right) & \text{if } x > T
-   \end{cases}
+$$
+y =
+\begin{cases}
+x, & \text{if } x \le T \\
+T + (C - T) \cdot \left(1 - \left(1 - \frac{x - T}{1 - T}\right)^{1.35}\right), & \text{if } x > T
+\end{cases}
+$$
 
 3. **Optional Paper Warmth**  
    Subtly attenuates only the blue and green channels *above the knee threshold*, turning harsh blue-white `#FFFFFF` backgrounds into calm warm-paper tones while keeping dark colors completely neutral.
